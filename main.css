@@ -1,0 +1,42 @@
+body, html {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+svg.figure rect {
+  fill: #811C00;
+}
+
+svg.figure text {
+  fill: #811C00;
+  font-size: 18px;
+  font-weight: 500;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  cursor: default;
+}
+
+svg.figure line {
+  stroke-width: 1;
+  stroke: grey;
+}
+
+svg.figure circle {
+  stroke: #811C00;
+  stroke-width: 1px;
+  fill: none;
+}
+
+.hex-input-container {
+  width: 450px;
+  margin: auto;
+}
+
+input.hex-input {
+  height: 25px;
+  font-size: 14px;
+  padding: 4px;
+  border: 1px solid #999;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  outline: 0;
+}
