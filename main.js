@@ -8,6 +8,7 @@ var hexValueAngleRanges = hexValues.map(function(hex) {
 });
 var $hexInput = document.querySelector('.hex-input');
 var $charOutput = document.querySelector('.char-output');
+var $markReply = document.querySelector('.mark-reply');
 var ct;
 
 $("svg.figure").mousemove(function(e) {
@@ -22,10 +23,23 @@ $("svg.figure").mousemove(function(e) {
   angle = Math.abs(angle);
 
   var hex = whichHexRange(angle);
+  var lastHex;
 
   if (hex) {
     ct = setTimeout(function() {
-      $hexInput.value += hex.value;
+      if ($hexInput.value.length === 0) {
+        $hexInput.value = hex.value;
+      }
+      else {
+        lastHex = $hexInput.value.split(" ").slice(-1)[0];
+        if (lastHex.length === 2) {
+          $hexInput.value += " " + hex.value;
+        }
+        else {
+          $hexInput.value += hex.value;
+        }
+      }
+
       renderCharOut($hexInput.value);
     }, 2000);
   }
@@ -58,6 +72,10 @@ function renderCharOut(hexInput) {
   }
 
   $charOutput.value = charOut;
+
+  if (charOut.length > 5) {
+    $markReply.classList.remove('hide');
+  }
 }
 
 function whichHexRange(angle) {

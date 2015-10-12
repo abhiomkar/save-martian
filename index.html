@@ -4,27 +4,48 @@
 <link rel="stylesheet" href="main.css">
 <!-- https://code.jquery.com/jquery-2.1.4.js -->
 <!-- http://d3js.org/d3.v3.min.js -->
+<meta charset="utf-8">
+<title>Save Martian</title>
 <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
 <script src="http://d3js.org/d3.v3.min.js"></script>
-  <meta charset="utf-8">
-  <title>Save Martian</title>
+<script src="https://use.typekit.net/yxk2dzh.js"></script>
+<script>try{Typekit.load({ async: true });}catch(e){}</script>
 </head>
 <body>
+<div class="noise"></div>
 
-<svg width="100%" height="510" class="figure">
-</svg>
+<div class="layer2">
+	<h1 class="title tk-nasalization">
+		Save Martian
+	</h1>
 
-<div class="hex-input-container">
-	<div class="input-group">
-	  <label for="hex-input">Hex</label>
-	  <input id="hex-input" class="hex-input"></input>
-  </div>
+	<svg width="100%" height="510" class="figure">
+	</svg>
 
-  <div class="input-group">
-	  <label for="char-output">Characters</label>
-		<input id="char-output" class="char-output"></input>
+	<div class="hex-input-container">
+		<div class="input-group">
+		  <label for="hex-input">Hex</label>
+		  <input id="hex-input" class="hex-input"></input>
+	  </div>
+
+	  <div class="input-group">
+		  <label for="char-output">Characters</label>
+			<input id="char-output" class="char-output"></input>
+		</div>
 	</div>
 
+	<div class="mark-reply hide">
+		<strong>Mark:</strong> Are you f*** kidding me?
+	</div>
+
+	<div class="help">
+		<a href="http://www.techinsider.io/the-martian-hexidecimal-language-2015-9" target="_blank">Help</a>
+	</div>
+	<footer>
+		<div class="copyright">
+			Made by <a href="http://twitter.com/abhiomkar">@abhiomkar</a>
+		</div>
+	</footer>
 </div>
 <script src="main.js"></script>
 </body>
