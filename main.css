@@ -2,6 +2,10 @@ body, html {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 svg.figure rect {
   fill: #811C00;
 }
@@ -17,6 +21,7 @@ svg.figure text {
 svg.figure line {
   stroke-width: 1;
   stroke: grey;
+  opacity: 0;
 }
 
 svg.figure circle {
@@ -26,17 +31,32 @@ svg.figure circle {
 }
 
 .hex-input-container {
-  width: 450px;
+  width: 550px;
   margin: auto;
 }
 
-input.hex-input {
-  height: 25px;
+input.hex-input, input.char-output {
+  height: 38px;
   font-size: 14px;
-  padding: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
   border: 1px solid #999;
-  width: 100%;
   margin-left: auto;
   margin-right: auto;
   outline: 0;
+  width: 75%;
+  display: inline-block;
+}
+
+input.char-output {
+  margin-top: 15px;
+}
+
+.input-group label {
+  width: 20%;
+  display: inline-block;
+  color: #999;
+  font-weight: 300;
+  text-align: right;
+  padding-right: 10px;
 }

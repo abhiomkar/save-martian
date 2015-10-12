@@ -2,6 +2,8 @@
 <html>
 <head>
 <link rel="stylesheet" href="main.css">
+<!-- https://code.jquery.com/jquery-2.1.4.js -->
+<!-- http://d3js.org/d3.v3.min.js -->
 <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
 <script src="http://d3js.org/d3.v3.min.js"></script>
   <meta charset="utf-8">
@@ -9,11 +11,20 @@
 </head>
 <body>
 
-<svg width="100%" height="600" class="figure">
+<svg width="100%" height="510" class="figure">
 </svg>
 
 <div class="hex-input-container">
-  <input class="hex-input"></input>
+	<div class="input-group">
+	  <label for="hex-input">Hex</label>
+	  <input id="hex-input" class="hex-input"></input>
+  </div>
+
+  <div class="input-group">
+	  <label for="char-output">Characters</label>
+		<input id="char-output" class="char-output"></input>
+	</div>
+
 </div>
 <script src="main.js"></script>
 </body>

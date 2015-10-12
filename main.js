@@ -7,6 +7,7 @@ var hexValueAngleRanges = hexValues.map(function(hex) {
   return {value: hex};
 });
 var $hexInput = document.querySelector('.hex-input');
+var $charOutput = document.querySelector('.char-output');
 var ct;
 
 $("svg.figure").mousemove(function(e) {
@@ -17,25 +18,46 @@ $("svg.figure").mousemove(function(e) {
   var x = Math.atan2(e.pageY - 250, (deviceWidth / 2) - e.pageX);
   var degree = (x > 0 ? x : (2*Math.PI + x)) * 360 / (2*Math.PI);
 
-  var hex = whichHexRange(degree - 90 - 180);
-
   var angle = degree - 360;
   angle = Math.abs(angle);
 
-  console.log('hex: ', angle);
+  var hex = whichHexRange(angle);
 
   if (hex) {
     ct = setTimeout(function() {
       $hexInput.value += hex.value;
+      renderCharOut($hexInput.value);
     }, 2000);
   }
 
-  videoCam.attr("transform", ["rotate(", parseInt(degree * -1), " 640 250)"].join(""));
+  videoCam.attr("transform", ["rotate(", angle, " 640 250)"].join(""));
+});
+
+$('.hex-input, .char-output').on('focus', function() {
+  clearTimeout(ct);
 });
 
 function handleMouseMove(x, y) {
   line.attr("x2", x)
   .attr("y2", y);
+}
+
+function renderCharOut(hexInput) {
+  var hex = '';
+  var ascii;
+  var charOut = '';
+
+  for(var i in hexInput) {
+    hex += hexInput[i];
+
+    if (hex.length === 2) {
+      ascii = parseInt(hex, 16);
+      charOut += String.fromCharCode(ascii);
+      hex = '';
+    }
+  }
+
+  $charOutput.value = charOut;
 }
 
 function whichHexRange(angle) {
@@ -64,8 +86,10 @@ outerCircle = svg.append("circle")
 .attr("r", 220)
 .attr("opacity", 0);
 
-var hexOriginX = originX + ((220) * Math.sin(0));
-var hexOriginY = originY - ((220) * Math.cos(0));
+var hexOriginX = originX - 220;
+var hexOriginY = originY;
+// var hexOriginX = originX + ((220) * Math.sin(0));
+// var hexOriginY = originY - ((220) * Math.cos(0));
 
 var hexText = svg.selectAll("text")
 .data(hexValues)
