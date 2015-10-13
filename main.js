@@ -151,8 +151,6 @@ $(function() {
   .attr("width", 10)
   .attr("height", 17);
 
-  videoCam.attr("transform", "rotate(45 640 250)");
-
   var line = svg.append("line")
   .attr("x1", deviceWidth / 2)
   .attr("y1", 250);
