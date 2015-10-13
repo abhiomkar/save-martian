@@ -44,7 +44,7 @@ $("svg.figure").mousemove(function(e) {
     }, 2000);
   }
 
-  videoCam.attr("transform", ["rotate(", angle, " 640 250)"].join(""));
+  videoCam.attr("transform", ["rotate(", angle, " ", originX, " ", originY, ")"].join(""));
 });
 
 $('.hex-input, .char-output').on('focus', function() {
@@ -132,8 +132,8 @@ var videoCam = svg.append("g")
 
 videoCam.append("rect")
 .classed({"large": true})
-.attr("x", (deviceWidth / 2) - 60/2)
-.attr("y", 250 - 30/2)
+.attr("x", originX - 60/2)
+.attr("y", originY - 30/2)
 .attr("rx", 3)
 .attr("ry", 3)
 .attr("width", 60)
@@ -141,14 +141,14 @@ videoCam.append("rect")
 
 videoCam.append("rect")
 .classed({"small": true})
-.attr("x", (deviceWidth / 2) - 10/2 - 36)
-.attr("y", 250 - 17/2)
+.attr("x", originX - 10/2 - 36)
+.attr("y", originY - 17/2)
 .attr("rx", 1)
 .attr("ry", 1)
 .attr("width", 10)
 .attr("height", 17);
 
-videoCam.attr("transform", "rotate(45 640 250)");
+videoCam.attr("transform", "rotate(45 " + originX + " " + originY + ")");
 
 var line = svg.append("line")
 .attr("x1", deviceWidth / 2)
